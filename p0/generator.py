@@ -2,6 +2,16 @@ import getopt, sys, math, os, matplotlib.pyplot as plt
 from subprocess import run
 from mpl_toolkits.mplot3d import Axes3D
 
+def usage():
+    print('USAGE:')
+    print('[-m a|b|c] set generator mode, a: diagonal, b: corners, c: spiral.')
+    print('[-n SIZE] set output size.')
+    print('[-d INPUTS] set input size.')
+    print('[-c DEV] set deviation.')
+    print('[-N NAME] set output\'s name.')
+    print('[-p] enable plotting.')
+
+
 def main():
     try: 
         opts, args = getopt.getopt(sys.argv[1:], "m:n:d:c:pN:", ["help", "output="])
@@ -74,8 +84,8 @@ def main():
             print("Error, no se pueden graficar datos de {0} dimensiones.".format(d))
     
     
-    output = open(N, mode = 'w' if os.path.isfile(N) else 'x')
-    print(f'Escribiendo resultado en: {N}')
+    output = open(f'./outputs/{N}', mode = 'w' if os.path.isfile(f'./outputs/{N}') else 'x')
+    print(f'Escribiendo resultado en: ./outputs/{N}')
     output.write(res.stdout.decode('ascii'))        
     
 
