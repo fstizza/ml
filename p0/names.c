@@ -10,10 +10,11 @@
 void usage()
 {
   printf("C4.5 Dataset format. USAGE: \n");
-  printf("[-c NAME]             - Add a continuous variable. \n");
-  printf("[-n NAME:n]           - Add a discrete variable with integer which indicates how many values the attribute can take. \n");
-  printf("[-v NAME:v1,v2,v3]    - Add a discrete variable with a list values the attribute can take. \n");
-  printf("[-i NAME]             - Add a variable that will be ignored. \n");
+  printf("C=class1,class2      - Output classes, comma separated.\n");
+  printf("[-c NAME]             - Add a continuous input. \n");
+  printf("[-n NAME:n]           - Add a discrete input with integer which indicates how many values the attribute can take. \n");
+  printf("[-v NAME:v1,v2,v3]    - Add a discrete input with a list values the attribute can take. \n");
+  printf("[-i NAME]             - Add a input that will be ignored. \n");
 }
 
 int index_of(char c, char *str)
@@ -27,10 +28,19 @@ int index_of(char c, char *str)
 
 int main(int argc, char **argv)
 {
-
   int c;
-
   opterr = 0;
+
+  if (argc < 3 || argv[1] == NULL || strncmp(argv[1], "C=", 2))
+  {
+    printf("C=class1,class2,... argument is REQUIRED. \n");
+    return -1;
+  }
+
+  printf("%s.\n", argv[1]);
+
+  argc--;
+  argv++;
 
   while ((c = getopt(argc, argv, "c:n:v:i:")) != -1)
     switch (c)

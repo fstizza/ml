@@ -7,20 +7,20 @@
 #define RHO1(a) (float)(a / (4.0f * M_PI))
 #define RHO2(a) (float)((a + M_PI) / (4.0f * M_PI))
 
+#define BW(a, b, c) (a < b && b < c)
+
 int rho(float t, float d)
 {
-	if (
-		(RHO1(t) <= d && d <= RHO2(t)) ||
-		(RHO1(t) + 0.5 <= d && d < RHO2(t) + 0.5) ||
-		(RHO1(t) + 1.0 < d && d <= RHO2(t) + 1.0))
-		return 1;
-	else
-		return 0;
+	float r1 = RHO1(t);
+	float r2 = RHO2(t);
+
+	float diff = r2 - r1;
+
+	return BW(r1, d, r2) || BW(r1 + 2 * diff, d, r2 + 2 * diff) || BW(r1 + 4 * diff, d, r2 + 4 * diff);
 }
 
 void spiral(int n)
 {
-	n = n / 2;
 	int i = 0;
 	while (i < n)
 	{
@@ -30,12 +30,23 @@ void spiral(int n)
 		float t = atan2(y, x);
 		float d = sqrt(pow(x, 2) + pow(y, 2));
 
-		if (d > 1) continue;
-		if (rho(t, d) && i < n)
+		if (d > 1)
+			continue;
+		if (rho(t, d))
 		{
-			printf("%f, %f, %s\n", x, y, "0");
-			printf("%f, %f, %s\n", x * -1, y * -1, "1");
-			i++;
+			if (i < n / 2)
+			{
+				printf("%f, %f, %s\n", x, y, "0");
+				i++;
+			}
+		}
+		else
+		{
+			if (i >= n / 2)
+			{
+				printf("%f, %f, %s\n", x, y, "1");
+				i++;
+			}
 		}
 	}
 }

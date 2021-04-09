@@ -3,18 +3,14 @@ from subprocess import run
 from mpl_toolkits.mplot3d import Axes3D
 
 def usage():
-    print('USAGE:')
-    print('[-m a|b|c] set generator mode, a: diagonal, b: corners, c: spiral.')
-    print('[-n SIZE] set output size.')
-    print('[-d INPUTS] set input size.')
-    print('[-c DEV] set deviation.')
-    print('[-N NAME] set output\'s name.')
-    print('[-p] enable plotting.')
-
+    cmd = ['./build/ds', '-h'] 
+    run(cmd, shell=False)
+    print('[-N NAME] set output\'s name.');
+    print('[-p] enable plotting.');
 
 def main():
     try: 
-        opts, args = getopt.getopt(sys.argv[1:], "m:n:d:c:pN:", ["help", "output="])
+        opts, args = getopt.getopt(sys.argv[1:], "phm:n:d:c:N:", ["help", "output="])
     except getopt.GetoptError as err:
         print(err)
         usage()
@@ -39,11 +35,14 @@ def main():
             p = True
         elif o == '-N':
             N = f'{a}.data'
+        elif o == '-h':
+            usage()
+            return
             
     cmd = ['./build/ds'] + (sys.argv[1:])
     res = run(cmd, capture_output=True)
     data = res.stdout.decode('ascii').splitlines(keepends= False)
-    
+
     if p:
         data = list(map(lambda i: list(map(lambda x: x.strip(), i.split(','))), data))
         c0 = list(map(lambda y: y[:d], list(filter(lambda x: x[d] == '0',data))))

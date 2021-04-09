@@ -10,12 +10,18 @@ float gauss(float x, float mu, float sg)
 }
 
 // Genera un numero aleatorio flotante en el rango dado.
+/*
 float random_float(float a, float b)
 {
     float random = ((float)rand()) / (float)RAND_MAX;
     float diff = b - a;
     float r = random * diff;
     return a + r;
+}
+*/
+float random_float(float min, float max) {
+    float random = ((float) rand()) / (float) RAND_MAX;
+    return min + random * (max - min);
 }
 
 // Generamos N puntos con distribucion normal con centro MU y varianza SG.

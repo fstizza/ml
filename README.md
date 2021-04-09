@@ -6,11 +6,19 @@ Repositorio de la cátedra **Introducción al aprendizaje automatizado**.
 Trabajo práctico 0 (p0)
 ```
 # Compilar el proyecto.
-cd p0 && meson compile
+cd build && meson compile
 
-# Correr y output en archivo.
+# Para correr y output en archivo.
 ./ds > output.txt
 
-# Correr y plotear (si es posible).
-python3 plotter.py
+# Para ver todas las opciones disponibles.
+./ds -h
+
+
+# Correr con el generador.
+python3 generator.py
+
+# Para ver todas las opciones disponibles.
+python3 generator.py -h
+
 ```
