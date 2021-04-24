@@ -28,7 +28,7 @@ void usage()
 {
 	printf("USAGE: \n");
 	printf("[-h] print this help.\n");
-	printf("[-m a|b|c] set generator mode, a: diagonal, b: corners, c: spiral.\n");
+	printf("[-m d|p|s] set generator mode, d: diagonal, p: parallel, s: spiral.\n");
 	printf("[-n SIZE] set output size.\n");
 	printf("[-d INPUTS] set input size.\n");
 	printf("[-c DEV] set deviation.\n");
@@ -39,14 +39,14 @@ int main(int argc, char **argv)
 	// Default values.
 	int n = 200, d = 2;
 	float c = 0.75f;
-	char m = 'a';
+	char m = 'd';
 
 	srand(time(NULL));
 
 	opterr = 0;
 	int o;
 
-	while ((o = getopt(argc, argv, "phm:n:d:c:")) != -1)
+	while ((o = getopt(argc, argv, "phm:n:d:c:N:")) != -1)
 	{
 		switch (o)
 		{
@@ -89,6 +89,8 @@ int main(int argc, char **argv)
 		
 		case 'p':
 			break;
+		case 'N':
+			break;
 
 		default:
 			printf("Argument error: -%c is not a valid option.\n", optopt);
@@ -99,15 +101,15 @@ int main(int argc, char **argv)
 
 	switch (m)
 	{
-	case 'a':
+	case 'd':
 		diagonal(n, d, c * sqrt(d));
 		break;
 
-	case 'b':
+	case 'p':
 		corners(n, d, c);
 		break;
 
-	case 'c':
+	case 's':
 		spiral(n);
 		break;
 

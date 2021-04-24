@@ -1,0 +1,48 @@
+
+C4.5 [release 8] decision tree generator	Thu Apr 22 18:30:35 2021
+----------------------------------------
+
+    Options:
+	File stem <iris>
+	Trees evaluated on unseen cases
+
+Read 105 cases (4 attributes) from iris.data
+
+Decision Tree:
+
+petalwidth <= 0.5 : 0 (35.0)
+petalwidth > 0.5 :
+|   petalwidth > 1.7 : 2 (31.0/1.0)
+|   petalwidth <= 1.7 :
+|   |   petallength <= 4.9 : 1 (33.0/1.0)
+|   |   petallength > 4.9 :
+|   |   |   petalwidth <= 1.5 : 2 (3.0)
+|   |   |   petalwidth > 1.5 : 1 (3.0/1.0)
+
+
+Tree saved
+
+
+Evaluation on training data (105 items):
+
+	 Before Pruning           After Pruning
+	----------------   ---------------------------
+	Size      Errors   Size      Errors   Estimate
+
+	   9    3( 2.9%)      9    3( 2.9%)    ( 9.2%)   <<
+
+Evaluation on test data (45 items):
+
+	 Before Pruning           After Pruning
+	----------------   ---------------------------
+	Size      Errors   Size      Errors   Estimate
+
+	   9    1( 2.2%)      9    1( 2.2%)    ( 9.2%)   <<
+
+
+	  (a)  (b)  (c)	<-classified as
+	 ---- ---- ----
+	   14    1     	(a): class 0
+	        15     	(b): class 1
+	             15	(c): class 2
+

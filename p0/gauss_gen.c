@@ -39,7 +39,7 @@ void gauss_gen(int n, float mu, float sg)
         float fx = gauss(x, mu, sg);
         if (y < fx)
         {
-            printf("%f, ", x);
+            printf("%f,", x);
             i++;
         }
     }
@@ -53,12 +53,12 @@ void diagonal(int n, int d, float c)
     for (int i = 0; i < n; i++)
     {
         gauss_gen(d, 1.0, c);
-        printf("%s \n", "0");
+        printf("%s\n", "0");
     }
     for (int i = 0; i < n; i++)
     {
         gauss_gen(d, -1.0, c);
-        printf("%s \n", "1");
+        printf("%s\n", "1");
     }
 }
 
@@ -69,12 +69,12 @@ void corners(int n, int d, float c)
     {
         gauss_gen(1, 1.0, c);
         gauss_gen(d - 1, 0.0, c);
-        printf("%s \n", "0");
+        printf("%s\n", "0");
     }
     for (int i = 0; i < n; i++)
     {
         gauss_gen(1, -1.0, c);
         gauss_gen(d - 1, 0.0, c);
-        printf("%s \n", "1");
+        printf("%s\n", "1");
     }
 }

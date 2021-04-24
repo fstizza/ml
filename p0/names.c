@@ -31,13 +31,18 @@ int main(int argc, char **argv)
   int c;
   opterr = 0;
 
-  if (argc < 3 || argv[1] == NULL || strncmp(argv[1], "C=", 2))
+  if(argc < 3 || !strncmp(argv[1], "-h", 2)){
+    usage();
+    return 0;
+  }
+
+  if (argc < 3 || strncmp(argv[1], "C=", 2))
   {
-    printf("C=class1,class2,... argument is REQUIRED. \n");
+    printf("C=class1,class2,... argument is REQUIRED and must be the first parameter. \n");
     return -1;
   }
 
-  printf("%s.\n", argv[1]);
+  printf("%s.\n", argv[1]+2);
 
   argc--;
   argv++;
@@ -75,7 +80,7 @@ int main(int argc, char **argv)
         char name[idx];
         strncpy(name, optarg, idx - 1);
         name[idx - 1] = '\0';
-        printf("%s: discrete %s.\n", name, optarg + idx);
+        printf("%s: %s.\n", name, optarg + idx);
       }
       else
       {

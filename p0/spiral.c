@@ -14,9 +14,22 @@ int rho(float t, float d)
 	float r1 = RHO1(t);
 	float r2 = RHO2(t);
 
-	float diff = r2 - r1;
+	// Chequeamos que este en el primer periodo de las curvas.
+	if(BW(r1, d, r2)) return 1;	
+	float offset = (r2 - r1)*2;
+	
+	// Luego son todas paralelas con distancia offset.
+	r1 += offset;
+	r2 += offset;
 
-	return BW(r1, d, r2) || BW(r1 + 2 * diff, d, r2 + 2 * diff) || BW(r1 + 4 * diff, d, r2 + 4 * diff);
+	if(BW(r1, d, r2)) return 1;
+
+	r1 += offset;
+	r2 += offset;
+
+	if(BW(r1, d, r2)) return 1;
+
+	return 0;
 }
 
 void spiral(int n)
@@ -36,7 +49,7 @@ void spiral(int n)
 		{
 			if (i < n / 2)
 			{
-				printf("%f, %f, %s\n", x, y, "0");
+				printf("%f,%f,%s\n", x, y, "0");
 				i++;
 			}
 		}
@@ -44,7 +57,7 @@ void spiral(int n)
 		{
 			if (i >= n / 2)
 			{
-				printf("%f, %f, %s\n", x, y, "1");
+				printf("%f,%f,%s\n", x, y, "1");
 				i++;
 			}
 		}

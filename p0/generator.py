@@ -7,10 +7,12 @@ def usage():
     run(cmd, shell=False)
     print('[-N NAME] set output\'s name.');
     print('[-p] enable plotting.');
+    print('[-i] plot input dataset.');
+    print('[-s] plot input dataset (SPIRAL).');
 
 def main():
     try: 
-        opts, args = getopt.getopt(sys.argv[1:], "phm:n:d:c:N:", ["help", "output="])
+        opts, args = getopt.getopt(sys.argv[1:], "phm:n:d:c:N:i:s:", ["help", "output="])
     except getopt.GetoptError as err:
         print(err)
         usage()
@@ -22,6 +24,7 @@ def main():
     c = 0.75
     p = False
     N = 'ds.data'
+    i = ''
     for o, a in opts:
         if o == '-m':
             m = a
@@ -32,16 +35,29 @@ def main():
         elif o == '-c':
             c = float(a)
         elif o == '-p':
+            print(a)
             p = True
         elif o == '-N':
             N = f'{a}.data'
+        elif o == '-i':
+            i = a
+            p = True
+        elif o == '-s':
+            i = a
+            m = 'c'
+            p = True
         elif o == '-h':
             usage()
             return
-            
-    cmd = ['./build/ds'] + (sys.argv[1:])
-    res = run(cmd, capture_output=True)
-    data = res.stdout.decode('ascii').splitlines(keepends= False)
+    
+    data = None
+	
+    if(i == ''):
+      cmd = ['./build/ds'] + (sys.argv[1:])
+      res = run(cmd, capture_output=True)
+      data = res.stdout.decode('ascii').splitlines(keepends= False)
+    else:
+      data = open(i,'r').readlines()
 
     if p:
         data = list(map(lambda i: list(map(lambda x: x.strip(), i.split(','))), data))
@@ -82,10 +98,10 @@ def main():
         else:
             print("Error, no se pueden graficar datos de {0} dimensiones.".format(d))
     
-    
-    output = open(f'./outputs/{N}', mode = 'w' if os.path.isfile(f'./outputs/{N}') else 'x')
-    print(f'Escribiendo resultado en: ./outputs/{N}')
-    output.write(res.stdout.decode('ascii'))        
+    if(i == ''):
+      output = open(f'./outputs/{N}', mode = 'w' if os.path.isfile(f'./outputs/{N}') else 'x')
+      print(f'Escribiendo resultado en: ./outputs/{N}')
+      output.write(res.stdout.decode('ascii'))        
     
 
 def points(c, d):
