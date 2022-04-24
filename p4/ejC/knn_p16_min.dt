@@ -1,0 +1,17 @@
+
+Naive Bayes con distribuciones normales:
+Cantidad de entradas:16
+Cantidad de clases:2
+Archivo de patrones: parallel_d16_c0.78_10000/parallel_d16_c0.78_10000
+Cantidad total de patrones: 250
+Cantidad de patrones de entrenamiento: 250
+Cantidad de patrones de validacion: 0
+Cantidad de patrones de test: 10000
+Cantidad de vecinos: 2
+Semilla para la funcion rand(): 1623962470
+Fin del entrenamiento.
+
+Errores:
+Entrenamiento:13.600000%
+Validacion:13.600000%
+Test:21.219999%

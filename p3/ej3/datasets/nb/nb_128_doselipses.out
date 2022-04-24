@@ -1,0 +1,19 @@
+
+Naive Bayes con distribuciones normales:
+Cantidad de entradas:2
+Cantidad de clases:2
+Archivo de patrones: datasets/nb/nb_128_doselipses
+Cantidad total de patrones: 1000
+Cantidad de patrones de entrenamiento: 800
+Cantidad de patrones de validacion: 200
+Cantidad de patrones de test: 2000
+Cantidad de bins: 128
+Semilla para la funcion rand(): 1622670330Despues de setear hist
+Cant de bins: 128
+
+Fin del entrenamiento.
+
+Errores:
+Entrenamiento:3.875000%
+Validacion:1.500000%
+Test:7.950000%

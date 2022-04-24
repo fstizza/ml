@@ -1,0 +1,82 @@
+Trained for ikeda/ikeda started.
+# Training net with configuration ID: A
+# Configuration:
+# (5, 40, 1, 100, 95, 2000, 20000, 0.01, 0.3, 0.0, 200)
+Error of train number: 0: 0.08131
+Error of train number: 1: 0.09018
+Error of train number: 2: 0.09671
+Error of train number: 3: 0.07934
+Error of train number: 4: 0.08595
+Error of train number: 5: 0.08333
+Error of train number: 6: 0.10262
+Error of train number: 7: 0.07761
+Error of train number: 8: 0.07857
+Error of train number: 9: 0.08004
+Average error: 0.085566
+Train of minimum difference with AVG: 4
+
+# Training net with configuration ID: B
+# Configuration:
+# (5, 40, 1, 100, 85, 2000, 20000, 0.01, 0.3, 0.0, 200)
+Error of train number: 0: 0.08618
+Error of train number: 1: 0.08741
+Error of train number: 2: 0.08052
+Error of train number: 3: 0.08879
+Error of train number: 4: 0.08393
+Error of train number: 5: 0.0932
+Error of train number: 6: 0.09153
+Error of train number: 7: 0.07816
+Error of train number: 8: 0.0814
+Error of train number: 9: 0.08649
+Average error: 0.085761
+Train of minimum difference with AVG: 0
+
+# Training net with configuration ID: C
+# Configuration:
+# (5, 40, 1, 100, 75, 2000, 20000, 0.01, 0.3, 0.0, 200)
+Error of train number: 0: 0.08494
+Error of train number: 1: 0.09381
+Error of train number: 2: 0.09408
+Error of train number: 3: 0.09087
+Error of train number: 4: 0.0948
+Error of train number: 5: 0.10403
+Error of train number: 6: 0.09201
+Error of train number: 7: 0.09727
+Error of train number: 8: 0.1037
+Error of train number: 9: 0.08756
+Average error: 0.094307
+Train of minimum difference with AVG: 2
+
+# Training net with configuration ID: D
+# Configuration:
+# (5, 40, 1, 100, 50, 2000, 20000, 0.01, 0.3, 0.0, 200)
+Error of train number: 0: 0.13484
+Error of train number: 1: 0.09369
+Error of train number: 2: 0.11093
+Error of train number: 3: 0.09394
+Error of train number: 4: 0.11318
+Error of train number: 5: 0.1553
+Error of train number: 6: 0.11554
+Error of train number: 7: 0.1198
+Error of train number: 8: 0.11913
+Error of train number: 9: 0.11345
+Average error: 0.11698000000000001
+Train of minimum difference with AVG: 6
+
+# Training net with configuration ID: E
+# Configuration:
+# (5, 40, 1, 100, 40, 2000, 20000, 0.01, 0.3, 0.0, 200)
+Error of train number: 0: 0.12166
+Error of train number: 1: 0.09724
+Error of train number: 2: 0.17633
+Error of train number: 3: 0.15848
+Error of train number: 4: 0.10057
+Error of train number: 5: 0.11362
+Error of train number: 6: 0.12567
+Error of train number: 7: 0.1208
+Error of train number: 8: 0.10015
+Error of train number: 9: 0.12595
+Average error: 0.12404699999999999
+Train of minimum difference with AVG: 6
+
+Minimum error: 0.085566 at combination: A.
